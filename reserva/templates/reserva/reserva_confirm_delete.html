@@ -1,0 +1,7 @@
+<h1>Eliminar Reserva</h1>
+<p>¿Seguro que deseas eliminar la reserva de la habitación {{ reserva.numero_habitacion }}?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Sí, eliminar</button>
+</form>
+<a href="{% url 'reserva_list' %}">Cancelar</a>

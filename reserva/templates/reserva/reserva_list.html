@@ -1,0 +1,16 @@
+<h1>Reservas</h1>
+<form method="get">
+  <input type="text" name="q" placeholder="Buscar..." value="{{ query|default:'' }}">
+  <button type="submit">Buscar</button>
+</form>
+<a href="{% url 'reserva_create' %}">Nueva Reserva</a>
+<ul>
+  {% for reserva in reservas %}
+    <li>
+      Habitación {{ reserva.numero_habitacion }} - {{ reserva.cliente.nombre }} ({{ reserva.fecha_ingreso }} a {{ reserva.fecha_salida }})
+      <a href="{% url 'reserva_edit' reserva.pk %}">Editar</a>
+      <a href="{% url 'reserva_delete' reserva.pk %}">Eliminar</a>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'cliente_list' %}">Ver Clientes</a>
